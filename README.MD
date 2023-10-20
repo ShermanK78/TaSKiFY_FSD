@@ -33,7 +33,7 @@ Follow these steps to set up and run the application locally:
    Change your working directory to the project folder:
 
    ```bash
-   cd your-repo
+   cd taskify
    ```
 
 3. **Install Dependencies:**
