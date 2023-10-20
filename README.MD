@@ -245,12 +245,9 @@ In this section, we will illustrate the main use cases of the application from t
 
 4. Click "Register" to create your account.
 
-5. You will receive a confirmation email to verify your email address.
+5. You will receive a message confirming your registration.
 
-6. After email verification, you can log in to your new account and access the application's features.
-
-
-
+6. Log in to your new account and access the application's features.
 
 ### 2. User Login and Profile Access
 
@@ -260,15 +257,13 @@ In this section, we will illustrate the main use cases of the application from t
 
 1. Open the application in a web browser.
 
-2. Click on the "Log In" button.
+2. Enter your registered email and password.
 
-3. Enter your registered email and password.
+3. Click "Log In."
 
-4. Click "Log In."
+4. Upon successful login, you will be directed to your profile page.
 
-5. Upon successful login, you will be directed to your profile page.
-
-6. Here, you can view and edit your profile information, including name and email.
+5. Here, you can view and edit your profile information, including name and email.
 
 ### 3. Task Management
 
@@ -301,6 +296,8 @@ In this section, we will illustrate the main use cases of the application from t
 2. Notifications will appear in the notification center, indicating updates, task assignments, and other important events.
 
 3. You can click on a notification to view more details or take action as needed.
+
+4. You can also delete notifications if required.
 
 ### 5. Project Management
 
@@ -335,7 +332,7 @@ The application offers real-time task management with dynamic updates on task st
 
 #### Interactive Notifications
 
-Users receive real-time notifications that are marked as read and can be cleared. This feature ensures that users stay informed about important events.
+Users receive real-time notifications that are marked as read and can be cleared[deleted]. This feature ensures that users stay informed about important events.
 
 #### Project Collaboration
 
@@ -362,7 +359,7 @@ The application enables project owners to create and manage projects, invite tea
 
 ### Deployment
 
-The application is deployed as a combination of back-end and front-end. The front-end is hosted together with the back-end for scalability and security. 
+The application is deployed as a combination of back-end and front-end. The front-end is hosted together with the back-end for efficiency. 
 
 - Deployed on Render.com
 - Access the deployed app by following this link: [(https://taskify-management-app.onrender.com)]
