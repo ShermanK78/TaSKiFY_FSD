@@ -68,6 +68,31 @@ Using Mongosh:          1.10.5
 ```bash
 @[***OMITTED***].[***OMITTED***].mongodb.net/?appName=mongosh+1.10.5
 ```
+ F. Navigate to the dbConfig.js file, and add YOUR suffix [in the example below, mine is: @hypdevfullstackdev001.5er5ja1.mongodb.net/?appName=mongosh+1.10.5]` to the #mongoose.connect method below:
+```bash
+const mongoose = require('mongoose');
+require("dotenv").config();
+
+const MONGODB_USERNAME = process.env.MONGODB_USERNAME;
+const MONGODB_PASSWORD = process.env.MONGODB_PASSWORD;
+
+async function connectToDatabase() {
+    try {
+        await mongoose.connect(`mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@hypdevfullstackdev001.5er5ja1.mongodb.net/?appName=mongosh+1.10.5`, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        });
+
+        console.log('MongoDB connected successfully');
+    } catch (error) {
+        console.error('MongoDB connection error:', error);
+    }
+}
+
+connectToDatabase(); // Call the async function to establish the connection
+
+module.exports = mongoose; // Export the mongoose instance
+```
 
 3. **Server & API configuration:**
 
@@ -79,13 +104,13 @@ Using Mongosh:          1.10.5
 
    Create a ‘.env’ file within the server folder. Open this file using a text editor.
 
-4. Using the file structure below, create the required variables, then input the required values. The MongoDB values can be obtained 
+4. Using the file structure below, create the required variables, then input the required values. The MongoDB values can be obtained from your Mongo DB credentials, the SECRET_KEY is any string of your choosing, without spaces or special characters that are not URL-encoded. 
 
-   ```bash
+```bash
 MONGODB_USERNAME=Your MongoDB Username
 MONGODB_PASSWORD=Your MongoDB Password
-MONGODB_URL_SUFFIX=Your URL Suffix
-   ```
+TOKEN_SECRET=Your Secret Key
+```
 
 ```
 ### Starting the Application
@@ -351,7 +376,7 @@ The application enables project owners to create and manage projects, invite tea
 The application is deployed as a combination of back-end and front-end. The front-end is hosted together with the back-end for scalability and security. 
 
 - Deployed on Render.com
-- Access the deployed app by following this link: [(https://taskify-1zhc.onrender.com)]
+- Access the deployed app by following this link: [(https://taskify-management-app.onrender.com)]
 
 ## Thanks and look forward to more innovative and exciting development!
 
