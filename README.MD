@@ -117,17 +117,6 @@ TOKEN_SECRET=Your Secret Key
 
 Now that you have cloned the repository, installed dependencies, and configured the necessary settings, follow these steps to start the application locally:
 
-#Option 1:
-
-1. In the root directory, run the following command to start the server: 
-
-```bash
-npm start
-```
-The application’s server and client will start concurrently. 
-
-#Option 2:
-
 1. **Start the Server:**
 
    Navigate to the server directory: 
