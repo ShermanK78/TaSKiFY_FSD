@@ -1,0 +1,5 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow: /admin/   # Disallow crawling of the admin section
+Disallow: /private/ # Disallow crawling of the private section
+

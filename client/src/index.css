@@ -1,0 +1,71 @@
+/* Import the Montserrat font from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap");
+
+/* Apply base styles from Tailwind CSS */
+@tailwind base;
+
+/* Apply component-specific styles from Tailwind CSS */
+@tailwind components;
+
+/* Apply utility classes from Tailwind CSS */
+@tailwind utilities;
+
+/* Apply the following styles to all elements on the page */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif !important; /* Set the font to Montserrat with a fallback to sans-serif */
+  font-weight: 500; /* Set the font weight to 500 (if applicable) */
+}
+
+/* Apply custom styles to button elements */
+button {
+  height: 40px !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Apply custom styles to input and select elements */
+input,
+select {
+  height: 40px !important;
+  border-radius: 0 !important;
+  border: 1px solid #bbbbbb !important; /* Add a 1px solid border with a specific color */
+  width: 100% !important; /* Set the width to 100% */
+  padding-left: 15px !important; /* Add left padding of 15px */
+}
+
+/* Apply custom styles to textarea elements */
+textarea {
+  border-radius: 0 !important;
+  border: 1px solid #bbbbbb !important; /* Add a 1px solid border with a specific color */
+}
+
+/* Apply styles when input, textarea, or select elements are focused */
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: none !important; /* Remove the box shadow on focus */
+  border: 1px solid #343434 !important; /* Change the border color on focus */
+}
+
+/* Apply custom styles to Ant Design form item elements */
+.ant-form-item {
+  margin-bottom: 10 !important; /* Add a bottom margin of 10 */
+}
+
+/* Apply custom styles to Ant Design form item label elements */
+.ant-form-item-label {
+  padding: 0 !important; /* Remove padding from the label */
+}
+
+/* Apply custom styles to table elements */
+table {
+  border: 1px solid #bbbbbb !important; /* Add a 1px solid border with a specific color to tables */
+}
+
+/* Apply custom styles to "i" elements (commonly used for icons) */
+i {
+  font-size: 20px !important; /* Set the font size to 20px */
+}
