@@ -33,7 +33,7 @@ Follow these steps to set up and run the application locally:
    Change your working directory to the project folder:
 
    ```bash
-   cd your-repo
+   cd taskify
    ```
 
 3. **Install Dependencies:**
@@ -68,6 +68,31 @@ Using Mongosh:          1.10.5
 ```bash
 @[***OMITTED***].[***OMITTED***].mongodb.net/?appName=mongosh+1.10.5
 ```
+ F. Navigate to the dbConfig.js file, and add YOUR suffix [in the example below, mine is: @hypdevfullstackdev001.5er5ja1.mongodb.net/?appName=mongosh+1.10.5]` to the #mongoose.connect method below:
+```bash
+const mongoose = require('mongoose');
+require("dotenv").config();
+
+const MONGODB_USERNAME = process.env.MONGODB_USERNAME;
+const MONGODB_PASSWORD = process.env.MONGODB_PASSWORD;
+
+async function connectToDatabase() {
+    try {
+        await mongoose.connect(`mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@hypdevfullstackdev001.5er5ja1.mongodb.net/?appName=mongosh+1.10.5`, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        });
+
+        console.log('MongoDB connected successfully');
+    } catch (error) {
+        console.error('MongoDB connection error:', error);
+    }
+}
+
+connectToDatabase(); // Call the async function to establish the connection
+
+module.exports = mongoose; // Export the mongoose instance
+```
 
 3. **Server & API configuration:**
 
@@ -79,29 +104,18 @@ Using Mongosh:          1.10.5
 
    Create a ‘.env’ file within the server folder. Open this file using a text editor.
 
-4. Using the file structure below, create the required variables, then input the required values. The MongoDB values can be obtained 
+4. Using the file structure below, create the required variables, then input the required values. The MongoDB values can be obtained from your Mongo DB credentials, the SECRET_KEY is any string of your choosing, without spaces or special characters that are not URL-encoded. 
 
-   ```bash
+```bash
 MONGODB_USERNAME=Your MongoDB Username
 MONGODB_PASSWORD=Your MongoDB Password
-MONGODB_URL_SUFFIX=Your URL Suffix
-   ```
+TOKEN_SECRET=Your Secret Key
+```
 
 ```
 ### Starting the Application
 
 Now that you have cloned the repository, installed dependencies, and configured the necessary settings, follow these steps to start the application locally:
-
-#Option 1:
-
-1. In the root directory, run the following command to start the server: 
-
-```bash
-npm start
-```
-The application’s server and client will start concurrently. 
-
-#Option 2:
 
 1. **Start the Server:**
 
@@ -231,12 +245,9 @@ In this section, we will illustrate the main use cases of the application from t
 
 4. Click "Register" to create your account.
 
-5. You will receive a confirmation email to verify your email address.
+5. You will receive a message confirming your registration.
 
-6. After email verification, you can log in to your new account and access the application's features.
-
-
-
+6. Log in to your new account and access the application's features.
 
 ### 2. User Login and Profile Access
 
@@ -246,15 +257,13 @@ In this section, we will illustrate the main use cases of the application from t
 
 1. Open the application in a web browser.
 
-2. Click on the "Log In" button.
+2. Enter your registered email and password.
 
-3. Enter your registered email and password.
+3. Click "Log In."
 
-4. Click "Log In."
+4. Upon successful login, you will be directed to your profile page.
 
-5. Upon successful login, you will be directed to your profile page.
-
-6. Here, you can view and edit your profile information, including name and email.
+5. Here, you can view and edit your profile information, including name and email.
 
 ### 3. Task Management
 
@@ -287,6 +296,8 @@ In this section, we will illustrate the main use cases of the application from t
 2. Notifications will appear in the notification center, indicating updates, task assignments, and other important events.
 
 3. You can click on a notification to view more details or take action as needed.
+
+4. You can also delete notifications if required.
 
 ### 5. Project Management
 
@@ -321,7 +332,7 @@ The application offers real-time task management with dynamic updates on task st
 
 #### Interactive Notifications
 
-Users receive real-time notifications that are marked as read and can be cleared. This feature ensures that users stay informed about important events.
+Users receive real-time notifications that are marked as read and can be cleared[deleted]. This feature ensures that users stay informed about important events.
 
 #### Project Collaboration
 
@@ -348,10 +359,10 @@ The application enables project owners to create and manage projects, invite tea
 
 ### Deployment
 
-The application is deployed as a combination of back-end and front-end. The front-end is hosted together with the back-end for scalability and security. 
+The application is deployed as a combination of back-end and front-end. The front-end is hosted together with the back-end for efficiency. 
 
 - Deployed on Render.com
-- Access the deployed app by following this link: [(https://taskify-1zhc.onrender.com)]
+- Access the deployed app by following this link: [(https://taskify-management-app.onrender.com)]
 
 ## Thanks and look forward to more innovative and exciting development!
 
