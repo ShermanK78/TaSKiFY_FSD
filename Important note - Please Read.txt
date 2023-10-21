@@ -1,0 +1,25 @@
+Please note:
+
+1.The root/package.json script on 'https://github.com/ShermanK78/TaSKiFY_FSD' was modified for building and subsequent deployment, as Render.com does not support the 'concurrently' package. 
+
+2.Essentially this means that the app in the GitHub repository needs to be started manually by navigating to each folder and starting them seperately. 
+**NB**: The MongoDB Connection will not function correctly, as the '.env file' has been added to '.gitignore' for security purposes, and is therefore not present in the repository.
+
+3.The zipped file in this 'Compulsory Task 1' folder, uses concurrently and can therefore be started from the main project folder '/taskify/' using 'npm start'.
+
+You may use mine, and other fictitious email addresses and passwords to navigate the app[the deployed version on Render.com], during your review:
+
+1. 
+Owner role.
+email: info@gteonline.co.za
+password: 1234
+
+2. 
+Admin role.
+email:tony@stark.io
+password: tony
+
+3. 
+Employee role.
+email:peter@bugle.ny
+password: spidey

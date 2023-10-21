@@ -1,6 +1,6 @@
+import React from "react";
 import { Button, Form, Input, message, Modal, Tabs, Upload } from "antd";
 import TextArea from "antd/lib/input/TextArea";
-import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AddNotification } from "../../../apicalls/notifications";
 import { CreateTask, UpdateTask, UploadImage } from "../../../apicalls/tasks";
@@ -12,6 +12,7 @@ function TaskForm({
   project,
   task,
   reloadData,
+  form
 }) {
   // State to manage the active tab
   const [selectedTab = "1", setSelectedTab] = React.useState("1");
@@ -161,6 +162,10 @@ function TaskForm({
       okText={task ? "UPDATE" : "CREATE"}
       width={800}
       {...(selectedTab === "2" && { footer: null })}
+      okButtonProps={{
+        disabled: email && !validateEmail(),
+      }}
+    
     >
       <Tabs activeKey={selectedTab} onChange={(key) => setSelectedTab(key)}>
         <Tabs.TabPane tab="Task Details" key="1">
@@ -180,8 +185,7 @@ function TaskForm({
             <Form.Item label="Task Description" name="description">
               <TextArea />
             </Form.Item>
-
-            <Form.Item label="Assign To" name="assignedTo">
+            <Form.Item label="Assign To" name="assignedTo" noStyle>
               <Input
                 placeholder="Enter email of the employee"
                 onChange={(e) => setEmail(e.target.value)}
@@ -190,12 +194,22 @@ function TaskForm({
             </Form.Item>
 
             {email && !validateEmail() && (
-              <div className="bg-red-700 text-sm p-2 rounded">
-                <span className="text-white">
-                  Email is not valid or employee is not in the project
-                </span>
-              </div>
-            )}
+  <Form.Item
+    noStyle
+    shouldUpdate={(prevValues, currentValues) =>
+      prevValues.assignedTo !== currentValues.assignedTo
+    }
+  >
+    {({ getFieldsValue }) => (
+      <div className="bg-red-700 text-sm p-2 rounded">
+        <span className="text-white">
+          Email is not valid or employee is not in the project 
+        </span>
+       
+      </div>
+    )}
+  </Form.Item>
+)}
           </Form>
         </Tabs.TabPane>
         <Tabs.TabPane tab="Attachments" key="2" disabled={!task}>

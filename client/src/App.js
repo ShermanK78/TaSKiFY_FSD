@@ -1,5 +1,3 @@
-//Inspiration from: https://www.youtube.com/@sathyaprakashreddy237 and https://github.com/sathyaprakash195
-
 import { useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProtectedPage from "./components/ProtectedPage";
