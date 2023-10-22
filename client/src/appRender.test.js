@@ -1,5 +1,7 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import 'esm';
+import { render, screen } from "@testing-library/react";
+import '@testing-library/jest-dom'
 import App from "./App.js";
 import { Provider } from "react-redux";
 import store from './redux/store'; 
@@ -25,6 +27,6 @@ test("expects appRender", () => {
     );
 
     // Check if the "appRender" element is present in the rendered component
-    const appRender = queryByTestId("appRender");
+    const appRender = screen.queryByTestId("appRender");
     expect(appRender).toBeInTheDocument();
 });
