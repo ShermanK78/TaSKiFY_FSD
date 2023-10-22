@@ -1,4 +1,5 @@
 import React from 'react';
+import 'esm';
 import { render } from '@testing-library/react';
 import App from "./App.js";
 import { Provider } from 'react-redux';
