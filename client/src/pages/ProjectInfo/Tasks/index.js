@@ -33,6 +33,12 @@ function Tasks({ project }) {
     (member) => member.role === "employee" && member.user._id === user._id
   );
 
+   // Check if the user is an administrator in the project
+   const isAdmin = project.members.some(
+    (member) => member.role === "admin" && member.user._id === user._id
+  );
+
+
   // Function to retrieve tasks based on filters
   const getTasks = async () => {
     try {
@@ -146,7 +152,7 @@ function Tasks({ project }) {
           style={{ width: "120px" }} // Set a fixed width for the Select components
           value={record.status}
           onChange={(value) => onStatusUpdate({ task: record, status: value })}
-          disabled={record.assignedTo._id !== user._id && isEmployee}
+          disabled={record.assignedTo._id !== user._id && isEmployee &&isAdmin}
         >
           <Option value="pending">Pending</Option>
           <Option value="inprogress">In Progress</Option>
