@@ -33,12 +33,12 @@ Follow these steps to set up and run the application locally:
    Change your working directory to the project folder:
 
    ```bash
-   cd taskify
+   cd TaSKiFY_FSD
    ```
 
 3. **Install Dependencies:**
 
-   Run the following command to install the required dependencies for both the server and client:
+   Run the following command to install the required dependencies for the server and client, and project root folder:
 
    ```bash
    npm install
