@@ -92,12 +92,12 @@ function TaskForm({
   // Function to validate the entered email
   const validateEmail = () => {
     const employeesInProject = project.members.filter(
-      (member) => member.role === "employee"
+      (member) => member.role === "employee" || member.role === "admin"
     );
 
     // Check if the entered email is valid and corresponds to an employee in the project
     const isEmailValid = employeesInProject.some(
-      (employee) => user && employee.user.email === email
+      (member) => user && member.user.email  === email
     );
 
     return isEmailValid ? true : false;
@@ -203,7 +203,8 @@ function TaskForm({
     {({ getFieldsValue }) => (
       <div className="bg-red-700 text-sm p-2 rounded">
         <span className="text-white">
-          Email is not valid or employee is not in the project 
+          Email is not valid or member was not included in this project 
+          NB: Only Project Owners & Admins may add members to projects
         </span>
        
       </div>
@@ -212,43 +213,7 @@ function TaskForm({
 )}
           </Form>
         </Tabs.TabPane>
-        <Tabs.TabPane tab="Attachments" key="2" disabled={!task}>
-          <div className="flex gap-5 mb-5">
-            {images.map((image) => {
-              return (
-                <div className="flex gap-3 p-2 border border-solid rounded border-gray-500 items-end">
-                  <img
-                    src={image}
-                    alt=""
-                    className="w-20 h-20 object-cover mt-2"
-                  />
-                  <i
-                    className="ri-delete-bin-line"
-                    onClick={() => deleteImage(image)}
-                  ></i>
-                </div>
-              );
-            })}
-          </div>
-          <Upload
-            beforeUpload={() => false}
-            onChange={(info) => {
-              setFile(info.file);
-            }}
-            listType="picture"
-          >
-            <Button type="dashed">Upload Images</Button>
-          </Upload>
-
-          <div className="flex justify-end mt-4 gap-5">
-            <Button type="default" onClick={() => setShowTaskForm(false)}>
-              Cancel
-            </Button>
-            <Button type="primary" onClick={uploadImage} disabled={!file}>
-              Upload
-            </Button>
-          </div>
-        </Tabs.TabPane>
+       
       </Tabs>
     </Modal>
   );
