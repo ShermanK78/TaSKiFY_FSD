@@ -1,5 +1,7 @@
 # TaSKiFY Web App
 
+A diverse and dynamic application to manage projects, tasks, adminstrators and employees across all sectors of industry and economy!
+
 ###Installation, Configuration & Testing
 
 This guide provides users with clear instructions on how to set up the application on their local machines, including modifying MongoDB URIs and API keys as needed.
