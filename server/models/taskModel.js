@@ -27,6 +27,7 @@ const taskSchema = new mongoose.Schema(
     // Reference to the user the task is assigned to, linking to the 'users' collection.
     assignedTo: {
       type: mongoose.Schema.Types.ObjectId,
+      required: true,
       ref: "users",
     },
     // Reference to the user who assigned the task, linking to the 'users' collection.
